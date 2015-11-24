@@ -8,12 +8,11 @@ var app = express();
 
 //app.use(express.static(__dirname + '/../www'));
 //mongoose.connect('mongodb://localhost/legacy'); //process.env.CUSTOMCONNSTR_MONGOLAB_URI || 
-mongoose.connect(uri);
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/legacy');
 
 middleware(app, express);
 
 var port = process.env.PORT || 8100;
-
 
 
 var server = http.createServer(app);
