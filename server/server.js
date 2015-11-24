@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var middleware = require('./config/middleware.js');
-var uri = require('./config/mongoURI.js');
+//var uri = require('./config/mongoURI.js');
 var http = require('http');
 
 var app = express();
