@@ -57,6 +57,17 @@ module.exports = {
       }
       response.status(201).send(event);
     });
+  },
+
+  getEventInfo: function (request, response, next) {
+    var findEvent = Q.nbind(Event.findOne, Event)
+    findEvent({name: request.body.event})
+    .then(function (event) {
+      response.json(event);
+    })
+    .fail(function (error) {
+      next(error);
+    });
   }
 
 };
